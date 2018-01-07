@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "js/showdown.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Humdub Markdown</title>
+
+</head>
+
+
+<body>
+
+
+
+
+<textarea id ="editableText" style = "width:50%" rows="30" cols="50">
+# Titre 1
+## Titre 2
+### Titre 3
+
+**GRAS**
+
+_Italique_
+
+Listes simples : 
+- première ligne
+- ne pas oublier l'espace après le tiret
+    - Rajouter deux espaces devant le tiret pour descendre la ligne d'un niveau (Ici il y en a 4 mais sur humhub il faut bien en mettre 2) 
+
+		
+Liste à numéro :
+1. première ligne
+2. ne pas oublier l'espace après le point
+###3. on peut faire des listes numérotées
+###4. En titre aussi
+</textarea>
+<div id="resultText" style = "width:49%;float:right">
+
+</div>
+<script>
+    var text = document.getElementById("editableText");
+    var resultDiv = document.getElementById("resultText");
+    converter = new showdown.Converter();
+    var func = function(){
+        resultDiv.innerHTML = converter.makeHtml(text.value);
+    };
+    text.onkeyup = func;
+    text.onblur = func;
+		func();
+</script>
+
+
+
+</body>
+</html>
